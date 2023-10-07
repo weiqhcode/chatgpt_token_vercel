@@ -31,6 +31,11 @@
       "src": "/refreshOpenAIToken",
       "status": 200,
       "dest": "/api/refresh_openai_token"
+    },
+    {
+      "src": "/preauthCookie",
+      "status": 200,
+      "dest": "/api/preauth_cookie"
     }
   ],
   "regions": ["sin1"]
