@@ -27,9 +27,9 @@
         <p>
             1. 首先需要能正常登录 chat.openai.com 。然后点击下面的登录链接。<br><br>
             2. 然后在浏览器中打开开发者工具，切换到 Network 选项卡。<br><br>
-            3. 登录后最后会卡住，并最后有一个重定向的请求，参数携带的有 code，并且只有一个 code 参数的那个请求才是。需要把 code 复制过来，获取 token。<br><br>
+            3. 登录后最后会卡住，并最后有一个重定向的请求，参数携带的有 code 和 state，并且只有 code 和 state 参数的那个请求才是。需要把 code 和 state 复制过来，获取 token。<br><br>
             4. 不会保存任何的信息，只充当一个调用工具，不做任何处理就返回原数据。<br><br>
-            5. 获取token后，进入 <a target="_blank" href="https://pandora.caoayu.top">Pandora</a> 页面，并填写使用获取到的 access_token
+            5. 获取token后，进入 <a target="_blank" href="https://chat.weiqh.net">Pandora</a> 页面，并填写使用获取到的 access_token
             登录即可。
         </p>
         <p style="font-weight: bold;">
@@ -48,9 +48,10 @@
 
         <p>
         <form action="#" method="post" id="getToken">
-            <label for="code">通过code和code_verifier以获取token。请输入code：</label><br><br>
+            <label for="code">通过 code 和 code_verifier 以获取 token。</label><br><br>
+            <label>请输入 code：</label><br><br>
             <textarea rows="3" cols="120" id="code" name="code" value=""></textarea><br><br>
-            <label for="code_verifier">请输入code_verifier：</label><br><br>
+            <label for="code_verifier">请输入 state：</label><br><br>
             <textarea rows="3" cols="120" id="code_verifier" name="code_verifier" value=""></textarea>
             <br><br>
             <button type="submit">获取 Token</button>
@@ -59,7 +60,7 @@
         </p>
         <p>
         <form action="#" method="post" id="refreshToken">
-            <label for="refresh_token">使用 Refresh Token 刷新 token 的失效。请输入Refresh Token：</label><br><br>
+            <label for="refresh_token">使用 Refresh Token 刷新 token 的失效。请输入 Refresh Token：</label><br><br>
             <textarea rows="3" cols="120" id="refresh_token" name="refresh_token" value=""></textarea>
             <br><br>
             <button type="submit">刷新 Token</button>
@@ -67,7 +68,7 @@
         </p>
         <p>
         <form action="#" method="post" id="revokeToken">
-            <label for="token">撤销 Refresh Token。请输入Refresh Token：</label><br><br>
+            <label for="token">撤销 Refresh Token。请输入 Refresh Token：</label><br><br>
             <textarea rows="3" cols="120" id="token" name="token" value=""></textarea>
             <br><br>
             <button type="submit">撤销 Refresh Token</button>
