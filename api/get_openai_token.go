@@ -11,12 +11,13 @@ func GetToken(w http.ResponseWriter, r *http.Request) {
 	url := "https://auth0.openai.com/oauth/token"
 	method := "POST"
 	code := r.PostFormValue("code")
+	code_verifier := r.PostFormValue("code_verifier")
 	payload := `{
 		"redirect_uri": "com.openai.chat://auth0.openai.com/ios/com.openai.chat/callback",
 		"grant_type": "authorization_code",
 		"client_id": "pdlLIX2Y72MIl2rhLhTE9VV9bN905kBh",
 		"code": "` + code + `",
-		"code_verifier": "IkrrBD89CBmwwzM-csfBnWKLMan5uE7laCMd2YTcPWE"
+		"code_verifier": "` + code_verifier + `",
 	  }`
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, strings.NewReader(payload))

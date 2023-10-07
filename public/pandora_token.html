@@ -34,8 +34,10 @@
     
         <p>
             <form action="#" method="post" id="getToken">
-                <label for="code">通过code获取token。请输入code：</label><br><br>
+                <label for="code">通过code和code_verifier以获取token。请输入code：</label><br><br>
                 <textarea rows="3" cols="120" id="code" name="code" value="" ></textarea>
+                <label for="code_verifier">请输入code_verifier：</label><br><br>
+                <textarea rows="3" cols="120" id="code_verifier" name="code_verifier" value="" ></textarea>
                 <br><br>
                 <button type="submit" >获取 Token</button>
             </form>
@@ -77,6 +79,7 @@
         var form = document.getElementById("getToken");
         var formData = new FormData(form);
         var code = document.getElementById("code").value;
+        var code_verifier = document.getElementById("code_verifier").value;
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/getOpenAItokenByCode");
         xhr.send(formData);
